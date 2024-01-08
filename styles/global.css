@@ -4,34 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    /* Custom variables */
-    --bg-color: #121212;
-    --text-color: hsl(0, 0%, 75%);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    --bg-gradient: radial-gradient(circle, rgb(0, 20, 26) 0, #000000 100%);
 
-}
+/* Custom colors inside tailwind.config.js */
 
 
 .main {
-  width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-  display: flex;
-  justify-content: center;
+  @apply w-screen min-h-screen fixed flex justify-center;
   padding: 120px 24px 160px 24px;
   pointer-events: none;
 }
 
 .main:before {
-  background: var(--bg-gradient);
-  position: absolute;
+  @apply bg-custom-bg-color absolute content-none w-full h-full;
   content: "";
   z-index: 2;
-  width: 100%;
-  height: 100%;
   top: 0;
 }
 
@@ -43,23 +29,15 @@
 
 /* Tailwind Styles */
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 text-hsl0065;
 }
 
 .head_text {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] sm:text-6xl;
 }
 
-.greenblue_gradient {
-  @apply bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent;
-}
-
-.green_gradient {
-  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
-}
-
-.blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+.bpr_gradient{
+  @apply bg-gradient-to-r from-grad-blue via-grad-purple to-grad-red bg-clip-text text-transparent;
 }
 
 .desc {
@@ -80,4 +58,30 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+/* Nav Styles */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-2xl tracking-wide text-hsl0065;
+}
+
+.createPost_btn, .signIn_btn {
+  @apply rounded-full border border-hsl0065 py-1.5 px-5 transition-all bg-hsl0065 text-black hover:text-hsl0065 hover:bg-transparent text-center text-sm font-inter flex items-center justify-center;
+}
+
+.signOut_btn {
+  @apply rounded-full border border-hsl0065 text-hsl0065 bg-transparent py-1.5 px-5 hover:text-black transition-all hover:bg-hsl0065 text-center text-sm font-inter flex items-center justify-center;
+}
+
+.mobile {
+    @apply bg-hsl0065 text-black hover:bg-transparent hover:text-hsl0065;
+}
+
+.dropdown_link {
+  @apply text-lg font-inter text-hsl0065 hover:text-black font-medium pt-4;
+}
+
+.dropdown_mobile {
+  @apply fixed right-0 flex flex-col items-end w-full px-2 mr-6 mt-10 overflow-y-auto bg-drop-down-color transition-all duration-200  border-0 shadow-none xl:ml-4 max-w-64 rounded-lg;
+  box-shadow: 0 .5rem .75rem rgba(0, 0, 0, 0.4);
 }
