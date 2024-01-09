@@ -100,3 +100,16 @@
 .form_input::placeholder {
   @apply text-hsl0065/40;
 }
+
+/* Feed Styles */
+.feed {
+  @apply mt-16 w-full mx-auto max-w-xl flex justify-center items-center flex-col gap-2;
+}
+.search_input {
+  @apply block w-full rounded-md border border-[rgba(0,0,0,.1)] bg-[rgba(0,0,0,.2)] py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-[-0.5rem_1rem_1.5rem_rgba(0,0,0,0.4)] font-medium focus:outline-none focus:border-cyan-600;
+}
+
+/* PromptCard Styles */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit border border-[rgba(0,0,0,0.3)] shadow-[-0.25rem_1rem_1rem_rgba(0,0,0,0.4)];
+}
