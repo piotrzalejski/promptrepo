@@ -6,17 +6,17 @@ import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const isLoggedIn = true;
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   //TODO Finish setting up providers for signing in and out
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
     };
-    setProviders();
+    setUpProviders();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ const Nav = () => {
 
       {/* Desktop Nav */}
       <div className='sm:flex hidden'>
-        {isLoggedIn ? (
+        {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link href='/create-prompt' className='createPost_btn'>
               Create Post
@@ -44,11 +44,12 @@ const Nav = () => {
             </button>
             <Link href='/profile'>
               <Image
-                src='assets/images/profile.svg'
+                src={session?.user.image}
                 width={35}
                 height={35}
                 alt='profile icon'
                 onClick={() => setToggleDropdown((prev) => !prev)}
+                style={{ 'border-radius': '1rem' }}
               />
             </Link>
           </div>
@@ -71,14 +72,15 @@ const Nav = () => {
 
       {/* Mobile Nav */}
       <div className='sm:hidden flex relative'>
-        {isLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
-              src='assets/images/profile.svg'
+              src={session?.user.image}
               width={35}
               height={35}
               alt='profile icon'
               onClick={() => setToggleDropdown((prev) => !prev)}
+              style={{ 'border-radius': '1rem' }}
             />
 
             {toggleDropdown && (
