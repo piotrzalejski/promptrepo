@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
+import { basePath } from '@next.config';
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -39,7 +40,14 @@ const Nav = () => {
             <Link href='/create-prompt' className='createPost_btn'>
               Create Post
             </Link>
-            <button type='button' onClick={signOut} className='signOut_btn'>
+            <button
+              type='button'
+              onClick={() => {
+                signOut({ redirect: true, callbackUrl: '/' });
+              }}
+              className='signOut_btn'
+              href='/'
+            >
               Sign Out
             </button>
             <Link href='/profile'>
@@ -49,7 +57,7 @@ const Nav = () => {
                 height={35}
                 alt='profile icon'
                 onClick={() => setToggleDropdown((prev) => !prev)}
-                style={{ 'border-radius': '1rem' }}
+                style={{ borderRadius: '2rem' }}
               />
             </Link>
           </div>
@@ -80,7 +88,7 @@ const Nav = () => {
               height={35}
               alt='profile icon'
               onClick={() => setToggleDropdown((prev) => !prev)}
-              style={{ 'border-radius': '1rem' }}
+              style={{ borderRadius: '2rem' }}
             />
 
             {toggleDropdown && (
@@ -102,8 +110,7 @@ const Nav = () => {
                 <button
                   type='button'
                   onClick={() => {
-                    setToggleDropdown(false);
-                    signOut();
+                    signOut({ redirect: true, callbackUrl: '/' });
                   }}
                   className='mt-5 w-full signOut_btn mobile'
                 >
