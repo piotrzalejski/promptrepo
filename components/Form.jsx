@@ -16,10 +16,10 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       {session?.user ? (
         <form
           onSubmit={handleSubmit}
-          className='mt-10 w-full max-w-2xl flex flex-col gap-7 glass'
+          className='mt-10 w-full max-w-2xl flex flex-col gap-7 form_'
         >
           <label htmlFor=''>
-            <span className='font-satoshi font-semibold text-base text-hsl0065'>
+            <span className='font-satoshi font-semibold text-base'>
               Your AI Prompt
             </span>
             <textarea
@@ -31,7 +31,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             />
           </label>
           <label htmlFor=''>
-            <span className='font-satoshi font-semibold text-base text-hsl0065'>
+            <span className='font-satoshi font-semibold text-base'>
               Tag{' '}
               <span className='font-normal'>
                 (#product, #webdevelopment, #idea)
@@ -47,14 +47,14 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           </label>
 
           <div className='flex-end mx-3 gap-4'>
-            <Link href='/' className='text-hsl0065 text-sm form_cancel'>
+            <Link href='/' className='hover:text-grad-purple'>
               Cancel
             </Link>
 
             <button
               type='submit'
               disabled={submitting}
-              className='px-5 py-1.5 text-sm bg-grad-purple rounded-full text-hsl0065 submit_btn'
+              className='px-5 py-1.5 text-sm bg-grad-purple rounded-full submit_btn'
             >
               {submitting ? `${type}...` : type}
             </button>

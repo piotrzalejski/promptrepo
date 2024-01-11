@@ -17,7 +17,6 @@ module.exports = {
         'grad-red': '#F95595',
         'grey-hover': 'hsl(0,0%,65%)',
         'custom-bg-color': '#181A1E',
-        hsl0065: 'hsl(0,0%,65%)',
         'drop-down-color': '#202528',
       },
     },

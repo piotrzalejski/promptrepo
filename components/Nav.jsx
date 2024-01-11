@@ -23,14 +23,16 @@ const Nav = () => {
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
       <Link href='/' className='flex gap-2 flex-center'>
-        <Image
+        {/* <Image
           src='/assets/images/logo.svg'
           alt='PromptRepo Logo'
           width={60}
           height={60}
           className='object-contain'
-        />
-        <p className='logo_text'>PromptRepo</p>
+        /> */}
+        <p className='logo_text'>
+          <span className='logo'>Prompt</span>Repo
+        </p>
       </Link>
 
       {/* Desktop Nav */}

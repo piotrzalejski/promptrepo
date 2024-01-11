@@ -6,6 +6,10 @@
 
 /* Custom colors inside tailwind.config.js */
 
+:root {
+  @apply text-white/65;
+}
+
 .main {
   @apply w-screen min-h-screen fixed flex justify-center;
   padding: 120px 24px 160px 24px;
@@ -13,7 +17,7 @@
 }
 
 .main:before {
-  @apply bg-custom-bg-color absolute content-none w-full h-full;
+  @apply bg-black absolute content-none w-full h-full;
   content: '';
   z-index: 2;
   top: 0;
@@ -27,7 +31,7 @@
 
 /* Tailwind Styles */
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 text-hsl0065;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 text-white/65;
 }
 
 .head_text {
@@ -60,24 +64,30 @@
 
 /* Nav Styles */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-2xl tracking-wide text-hsl0065;
+  @apply max-sm:hidden font-satoshi font-semibold text-2xl tracking-wide text-white/65 hover:opacity-80;
+}
+
+.logo {
+  @apply text-grad-purple;
 }
 
 .createPost_btn,
-.signIn_btn {
-  @apply rounded-full border border-hsl0065 py-1.5 px-5 transition-all bg-hsl0065 text-black hover:text-hsl0065 hover:bg-transparent text-center text-sm font-inter flex items-center justify-center;
+.signIn_btn,
+.submit_btn {
+  @apply rounded-lg py-1.5 px-5 transition-all bg-grad-purple text-white/65 hover:text-white hover:bg-grad-purple/70 text-center text-sm font-inter flex items-center justify-center;
 }
 
-.signOut_btn {
-  @apply rounded-full border border-hsl0065 text-hsl0065 bg-transparent py-1.5 px-5 mb-4 sm:mb-0 hover:text-black transition-all hover:bg-hsl0065 text-center text-sm font-inter flex items-center justify-center;
+.signOut_btn,
+.form_cancel {
+  @apply rounded-full text-white/65 bg-transparent py-1.5 px-5 mb-4 sm:mb-0 hover:text-white transition-all text-center text-sm font-inter flex items-center justify-center;
 }
 
 .mobile {
-  @apply bg-hsl0065 text-black hover:bg-transparent hover:text-hsl0065;
+  @apply border border-grad-purple text-grad-purple hover:bg-grad-purple/20 hover:text-white/65;
 }
 
 .dropdown_link {
-  @apply text-lg font-inter text-hsl0065 hover:text-black font-medium pt-4;
+  @apply text-lg font-inter text-white/65 hover:text-white font-medium pt-4;
 }
 
 .dropdown_mobile {
@@ -85,20 +95,20 @@
 }
 
 /* Form Styles */
-.glass {
-  @apply rounded-xl p-5 border-2 border-solid border-[rgba(0,0,0,.1)] backdrop-blur-lg max-sm:px-8 shadow-[-0.5rem_1rem_1.5rem_rgba(0,0,0,0.4)];
+.form_ {
+  @apply rounded-lg p-5 border-2 border-solid border-[#18181a] bg-[#0f0f0f] max-sm:px-8;
 }
 .form_textarea {
-  @apply w-full flex rounded-xl min-h-[100px] mt-2 p-3 text-sm text-hsl0065 outline-0 bg-[rgba(0,0,0,0.2)];
+  @apply w-full flex rounded-lg min-h-[100px] mt-2 p-3 text-sm placeholder:text-white/65 outline-none ring-1 ring-inset ring-white/10 bg-[rgba(0,0,0,0.3)];
 }
 
 .form_input {
-  @apply w-full flex rounded-3xl mt-2 p-3 text-sm text-hsl0065 outline-0 bg-[rgba(0,0,0,0.2)];
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm placeholder:text-white/65 outline-none ring-1 ring-inset ring-white/10 bg-[rgba(0,0,0,0.3)];
 }
 
 .form_textarea::placeholder,
 .form_input::placeholder {
-  @apply text-hsl0065/40;
+  @apply text-white/40;
 }
 
 /* Feed Styles */
@@ -106,12 +116,12 @@
   @apply mt-16 w-full mx-auto max-w-xl flex justify-center items-center flex-col gap-2;
 }
 .search_input {
-  @apply block w-full rounded-md border border-[rgba(0,0,0,.1)] bg-[rgba(0,0,0,.2)] py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-[-0.5rem_1rem_1.5rem_rgba(0,0,0,0.4)] font-medium focus:outline-none focus:border-cyan-600;
+  @apply block w-full bg-gray-950 border border-white/20 rounded-md py-2.5 font-satoshi pl-5 pr-12 text-sm focus:shadow-[0rem_0rem_.75rem_#22BBFE80] font-medium focus:outline-none focus:border-grad-blue;
 }
 
 /* PromptCard Styles */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit border border-[rgba(0,0,0,0.3)] shadow-[-0.25rem_1rem_1rem_rgba(0,0,0,0.4)];
+  @apply flex-1 break-inside-avoid rounded-lg bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit border border-[rgba(0,0,0,0.3)] shadow-[0rem_0rem_1rem_rgba(255,255,255,0.1)] hover:scale-95 transition-transform;
 }
 
 .prompt_layout {

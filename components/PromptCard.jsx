@@ -42,10 +42,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             className='rounded-full object-contain'
           />
           <div className='flex flex-col'>
-            <h3 className='font-satoshi font-semibold text-hsl0065'>
+            <h3 className='font-satoshi font-semibold text-white/65'>
               {post.creator.username}
             </h3>
-            <p className='text-sm font-inter text-hsl0065/40'>
+            <p className='text-sm font-inter text-white/40'>
               {post.creator.email}
             </p>
           </div>
@@ -64,25 +64,25 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           />
         </div>
       </div>
-      <pre className='overflow-auto whitespace-pre-line my-4 font-satoshi text-sm text-hsl0065/80'>
+      <pre className='overflow-auto whitespace-pre-line my-4 font-satoshi text-sm text-white/65'>
         {post.prompt}
       </pre>
       <p
-        className='text-hsl0065/40 font-inter text-sm cursor-pointer'
+        className='text-white/40 font-inter text-sm cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
         {post.tag}
       </p>
       {session?.user.id === post.creator._id && pathName === '/profile' && (
-        <div className='mt-5 flex-center gap-4 border-t border-hsl0065/10 pt-3 '>
+        <div className='mt-5 flex-center gap-4 border-t border-white/10 pt-3 '>
           <p
-            className='font-inter text-sm text-grad-blue hover:text-grad-blue/50 cursor-pointer'
+            className='font-inter text-sm text-grad-blue/80 hover:text-grad-blue/50 cursor-pointer'
             onClick={handleEdit}
           >
             Edit
           </p>
           <p
-            className='font-inter text-sm text-grad-red hover:text-grad-red/50 cursor-pointer'
+            className='font-inter text-sm text-grad-red/80 hover:text-grad-red/50 cursor-pointer'
             onClick={handleDelete}
           >
             Delete
